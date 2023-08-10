@@ -12,7 +12,7 @@ public class TaskController {
 
     @GetMapping("/tasks")
     public String list(Model model) {
-        model.addAttribute("taskList", taskService.find());
+        model.addAttribute("taskList", taskService.find()); // TODO
         return "tasks/list";
     }
 }
