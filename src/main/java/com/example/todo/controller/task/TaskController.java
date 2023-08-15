@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -61,5 +62,10 @@ public class TaskController {
         model.addAttribute("taskForm", form);
         model.addAttribute("mode", "EDIT");
         return "tasks/form";
+    }
+
+    @PutMapping("{id}") // PUT /tasks/{id}
+    public String update(@PathVariable("id") long id) {
+        return "redirect:/tasks/{id}";
     }
 }
