@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -78,5 +79,12 @@ public class TaskController {
         var entity = form.toEntity(id);
         taskService.update(entity);
         return "redirect:/tasks/{id}";
+    }
+
+    // POST /tasks/1 (hidden: _method: delete)
+    // -> DELETE /tasks/1
+    @DeleteMapping("{id}")
+    public String delete(@PathVariable("id") long id) {
+        return "redirect:/tasks";
     }
 }
