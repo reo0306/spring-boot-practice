@@ -17,6 +17,9 @@ public interface TaskRepository {
     @Select("SELECT id, summary, description, status FROM tasks WHERE id = #{taskId};")
     Optional<TaskEntity> selectById(@Param("taskId") long taskId);
 
-    @Insert("INSERT INTO")
-    void insert(TaskEntity newEntity);
+    @Insert("""
+    INSERT INTO tasks (summary, description, status)
+    VALUES (#{task.summary}, #{task.description}, #{task.status})
+    """)
+    void insert(@Param("task") TaskEntity newEntity);
 }
