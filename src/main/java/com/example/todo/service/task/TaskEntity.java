@@ -1,4 +1,9 @@
 package com.example.todo.service.task;
 
-public class TaskEntity {
+public record TaskEntity(
+        long id,
+        String summary,
+        String description,
+        TaskStatus status
+){
 }
