@@ -9,9 +9,11 @@
 </head>
 <body>
 <section layout:fragment="content">
-    <h1>タスク一覧</h1>
     <div>
-        <table>
+        <a th:href="@{/tasks/creationForm}" class="btn btn-primary">作成</a>
+    </div>
+    <div>
+        <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
@@ -29,6 +31,5 @@
         </table>
     </div>
 </section>
-<a th:href="@{/}">トップページへ戻る</a>
 </body>
 </html>
