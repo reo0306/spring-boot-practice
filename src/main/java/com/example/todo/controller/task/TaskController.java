@@ -76,4 +76,12 @@ public class TaskController {
         taskService.update(entity);
         return "redirect:/tasks/{id}";
     }
+
+    @DeleteMapping("{id}")
+    public String delete(
+            @PathVariable("id") long id
+    ) {
+        taskService.delete(id);
+        return "redirect:/tasks";
+    }
 }
